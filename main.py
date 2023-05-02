@@ -32,6 +32,9 @@ def save_note():
 def open_note():
     pass
 
+def change_size():
+    pass
+
 #Define layout and frames
 menu_frame = tkinter.Frame(root, bg=menu_color)
 text_frame = tkinter.Frame(root, bg=text_color)
@@ -45,9 +48,24 @@ new_button.grid(row=0, column=0, padx=5, pady=5)
 
 
 #Create a list of fonts to use
+families = ['Terminal', 'Modern', 'Script', 'Courier', 'Arial', 'Calibri', 'Cambria', 'Georgia', 'MS Gothic', 'SimSun', 'Tahoma', 'Times New Roman', 'Verdana', 'Wingdings']
+font_family = StringVar()
+font_family_drop = tkinter.OptionMenu(menu_frame, font_family, *families, command=change_font)
+font_family.set('Terminal')
+#Set the width so it will fit "times new roman" and remain constant
+font_family_drop.config(width=16)
+font_family_drop.grid(row=0, column=4, padx=5, pady=5)
+
+"""Must build out sections for sizes of font, as well as font options"""
 
 #Set the width so it will fit "times new roman" and remain constant
-
+font_sizes = ['8', '9', '10', '11', '12', '14', '18', '24', '30', '36', '48', '60', '72', '96']
+size_family = StringVar()
+font_sizes_drop = tkinter.OptionMenu(menu_frame, size_family, *font_sizes, command=change_size())
+size_family.set('8')
+#Set the width so it will fit "times new roman" and remain constant
+font_sizes_drop.config(width=4)
+font_sizes_drop.grid(row=0, column=5, padx=5, pady=5)
 
 #Set the width to be constant
 
